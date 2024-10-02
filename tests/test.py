@@ -12,11 +12,11 @@ map = img_data[:, :, 3].T
 # 载入食物地图
 img = Image.open(path + 'food.png')
 img_data = np.array(img).astype(np.float32) / 255.
-food = img_data[:, :, 3].T > 0.5
+food = img_data[:, :, 3].T
 
 targets = [
-    PointTarget(location=[120.0, 500.0], radius=10.),
-    ImageTarget(image=food)
+    PointTarget(chemical_id=0, location=[120.0, 500.0], radius=10.),
+    ImageTarget(chemical_id=1, image=food, continuous_value=True, randomly_hit=True, diffusion=0.1)
 ]
 ac = ImageSystem(map.shape, map, targets, create_window=True)
 

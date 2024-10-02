@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="anco",
-    version="1.0.1",
+    version="1.1.0",
     author="Shengzhi Wu",
     author_email="e1124755@u.nus.edu",
     description="A GPU-accelerated ant colony optimization library for Python 3 based on taichi",
