@@ -1,6 +1,19 @@
 import numpy as np
 from PIL import Image
-from anco import ImageSystem, PointTarget, ImageTarget
+
+# To facilitate testing, we have made it compatible to load packages from both the Python environment's library folder and the project folder.
+# If you installed the package using `pip install anco`, you can simply write a single line:
+# `from anco import ImageSystem, PointTarget, ImageTarget`
+try:
+    # Attempting to load the library from the library directory of the Python environment.
+    from anco import ImageSystem, PointTarget, ImageTarget
+except ImportError:
+    # Try loading the library from the project folder. This should work if you cloned the complete repository from GitHub.
+    import sys
+    from pathlib import Path
+    project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root))
+    from anco import ImageSystem, PointTarget, ImageTarget
 
 path = "tests/maps/"
 
